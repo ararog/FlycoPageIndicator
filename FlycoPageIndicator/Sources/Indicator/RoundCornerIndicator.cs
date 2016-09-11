@@ -52,11 +52,11 @@ namespace Com.Flyco.PageIndicator.Indicator
 			this.context = context;
 
 			TypedArray ta = context.ObtainStyledAttributes(attrs, Resource.Styleable.RoundCornerIndicaor);
-			indicatorWidth = ta.GetDimensionPixelSize(Resource.Styleable.RoundCornerIndicaor_rci_width, dp2px(6));
-			indicatorHeight = ta.GetDimensionPixelSize(Resource.Styleable.RoundCornerIndicaor_rci_height, dp2px(6));
-			indicatorGap = ta.GetDimensionPixelSize(Resource.Styleable.RoundCornerIndicaor_rci_gap, dp2px(8));
-			cornerRadius = ta.GetDimensionPixelSize(Resource.Styleable.RoundCornerIndicaor_rci_cornerRadius, dp2px(3));
-			strokeWidth = ta.GetDimensionPixelSize(Resource.Styleable.RoundCornerIndicaor_rci_strokeWidth, dp2px(0));
+			indicatorWidth = ta.GetDimensionPixelSize(Resource.Styleable.RoundCornerIndicaor_rci_width, Dp2px(6));
+			indicatorHeight = ta.GetDimensionPixelSize(Resource.Styleable.RoundCornerIndicaor_rci_height, Dp2px(6));
+			indicatorGap = ta.GetDimensionPixelSize(Resource.Styleable.RoundCornerIndicaor_rci_gap, Dp2px(8));
+			cornerRadius = ta.GetDimensionPixelSize(Resource.Styleable.RoundCornerIndicaor_rci_cornerRadius, Dp2px(3));
+			strokeWidth = ta.GetDimensionPixelSize(Resource.Styleable.RoundCornerIndicaor_rci_strokeWidth, Dp2px(0));
 			selectColor = ta.GetColor(Resource.Styleable.RoundCornerIndicaor_rci_selectColor, Color.ParseColor("#ffffff"));
 			unselectColor = ta.GetColor(Resource.Styleable.RoundCornerIndicaor_rci_unselectColor, Color.ParseColor("#88ffffff"));
 			strokeColor = ta.GetColor(Resource.Styleable.RoundCornerIndicaor_rci_strokeColor, Color.ParseColor("#ffffff"));
@@ -388,7 +388,7 @@ namespace Com.Flyco.PageIndicator.Indicator
 			base.OnRestoreInstanceState(state);
 		}
 
-		protected int dp2px(float dp)
+		protected int Dp2px(float dp)
 		{
 			float scale = context.Resources.DisplayMetrics.Density;
 			return (int)(dp * scale + 0.5f);

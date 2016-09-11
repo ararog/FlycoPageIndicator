@@ -64,11 +64,11 @@ namespace Com.Flyco.PageIndicator.Indicator
 
 			SetGravity(GravityFlags.Center);
 			TypedArray ta = context.ObtainStyledAttributes(attrs, Resource.Styleable.FlycoPageIndicaor);
-			indicatorWidth = ta.GetDimensionPixelSize(Resource.Styleable.FlycoPageIndicaor_fpi_width, dp2px(6));
-			indicatorHeight = ta.GetDimensionPixelSize(Resource.Styleable.FlycoPageIndicaor_fpi_height, dp2px(6));
-			indicatorGap = ta.GetDimensionPixelSize(Resource.Styleable.FlycoPageIndicaor_fpi_gap, dp2px(8));
-			cornerRadius = ta.GetDimensionPixelSize(Resource.Styleable.FlycoPageIndicaor_fpi_cornerRadius, dp2px(3));
-			strokeWidth = ta.GetDimensionPixelSize(Resource.Styleable.FlycoPageIndicaor_fpi_strokeWidth, dp2px(0));
+			indicatorWidth = ta.GetDimensionPixelSize(Resource.Styleable.FlycoPageIndicaor_fpi_width, Dp2px(6));
+			indicatorHeight = ta.GetDimensionPixelSize(Resource.Styleable.FlycoPageIndicaor_fpi_height, Dp2px(6));
+			indicatorGap = ta.GetDimensionPixelSize(Resource.Styleable.FlycoPageIndicaor_fpi_gap, Dp2px(8));
+			cornerRadius = ta.GetDimensionPixelSize(Resource.Styleable.FlycoPageIndicaor_fpi_cornerRadius, Dp2px(3));
+			strokeWidth = ta.GetDimensionPixelSize(Resource.Styleable.FlycoPageIndicaor_fpi_strokeWidth, Dp2px(0));
 			strokeColor = ta.GetColor(Resource.Styleable.FlycoPageIndicaor_fpi_strokeColor, Color.ParseColor("#ffffff"));
 			isSnap = ta.GetBoolean(Resource.Styleable.FlycoPageIndicaor_fpi_isSnap, false);
 
@@ -83,7 +83,7 @@ namespace Com.Flyco.PageIndicator.Indicator
 				this.selectDrawable = Resources.GetDrawable(selectRes);
 			}
 			else {
-				this.selectDrawable = getDrawable(selectColor, cornerRadius);
+				this.selectDrawable = GetDrawable(selectColor, cornerRadius);
 			}
 
 			if (unselectRes != 0)
@@ -91,43 +91,43 @@ namespace Com.Flyco.PageIndicator.Indicator
 				this.unSelectDrawable = Resources.GetDrawable(unselectRes);
 			}
 			else {
-				this.unSelectDrawable = getDrawable(unselectColor, cornerRadius);
+				this.unSelectDrawable = GetDrawable(unselectColor, cornerRadius);
 			}
 		}
 
 		/** call before setViewPager. set indicator width, unit dp, default 6dp */
 		public FlycoPageIndicator SetIndicatorWidth(float indicatorWidth)
 		{
-			this.indicatorWidth = dp2px(indicatorWidth);
+			this.indicatorWidth = Dp2px(indicatorWidth);
 			return this;
 		}
 
 		/** call before setViewPager. set indicator height, unit dp, default 6dp */
 		public FlycoPageIndicator SetIndicatorHeight(float indicatorHeight)
 		{
-			this.indicatorHeight = dp2px(indicatorHeight);
+			this.indicatorHeight = Dp2px(indicatorHeight);
 			return this;
 		}
 
 		/** call before setViewPager. set gap between two indicators, unit dp, default 6dp */
 		public FlycoPageIndicator SetIndicatorGap(float indicatorGap)
 		{
-			this.indicatorGap = dp2px(indicatorGap);
+			this.indicatorGap = Dp2px(indicatorGap);
 			return this;
 		}
 
 		/** call before setViewPager. set indicator select color, default "#ffffff" "#88ffffff" */
 		public FlycoPageIndicator SetIndicatorSelectColor(int selectColor, int unselectColor)
 		{
-			this.selectDrawable = getDrawable(selectColor, cornerRadius);
-			this.unSelectDrawable = getDrawable(unselectColor, cornerRadius);
+			this.selectDrawable = GetDrawable(selectColor, cornerRadius);
+			this.unSelectDrawable = GetDrawable(unselectColor, cornerRadius);
 			return this;
 		}
 
 		/** call before setViewPager. set indicator corner raduis, unit dp, default 3dp */
 		public FlycoPageIndicator SetCornerRadius(float cornerRadius)
 		{
-			this.cornerRadius = dp2px(cornerRadius);
+			this.cornerRadius = Dp2px(cornerRadius);
 			return this;
 		}
 
@@ -166,7 +166,7 @@ namespace Com.Flyco.PageIndicator.Indicator
 			return this;
 		}
 
-		public int getCurrentItem()
+		public int GetCurrentItem()
 		{
 			return currentItem;
 		}
@@ -389,7 +389,7 @@ namespace Com.Flyco.PageIndicator.Indicator
 			}
 		}
 
-		private GradientDrawable getDrawable(int color, float raduis)
+		private GradientDrawable GetDrawable(int color, float raduis)
 		{
 			GradientDrawable drawable = new GradientDrawable();
 			drawable.SetCornerRadius(raduis);
@@ -400,7 +400,7 @@ namespace Com.Flyco.PageIndicator.Indicator
 		}
 
 
-		private int dp2px(float dp)
+		private int Dp2px(float dp)
 		{
 			float scale = context.Resources.DisplayMetrics.Density;
 			return (int)(dp * scale + 0.5f);
