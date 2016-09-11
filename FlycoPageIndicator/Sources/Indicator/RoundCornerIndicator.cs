@@ -11,7 +11,7 @@ using Com.Flyco.PageIndicator.Indicator.Base;
 using FlycoPageIndicator;
 using Java.Lang;
 
-namespace Com.Flyco.Pageindicator.Indicator
+namespace Com.Flyco.PageIndicator.Indicator
 {
 
 	/** A pratice demo use GradientDrawable to realize the effect of JakeWharton's CirclePageIndicator */

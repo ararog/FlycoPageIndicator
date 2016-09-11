@@ -13,7 +13,7 @@ using Java.Lang;
 
 namespace Com.Flyco.IndicatorSamples.UI
 {
-	[Activity(Label = "Sample", Theme = "@android:style/Theme.NoTitleBar.Fullscreen", ScreenOrientation = ScreenOrientation.Portrait)]
+	[Activity(Label = "Sample", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
 	public class FlycoPageIndicatorActivity : AppCompatActivity
 	{
 
@@ -23,21 +23,18 @@ namespace Com.Flyco.IndicatorSamples.UI
 		private List<int> resList;
 		private View decorView;
 		private ViewPager pager;
+		private ViewPagerAdapter adapter;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.activity_api);
 
-			resList = new List<int>();
-			for (int i = 0; i < resIds.Length; i++)
-			{
-				resList.Add(resIds[i]);
-			}
+			adapter = new ViewPagerAdapter();
 
 			decorView = Window.DecorView;
 			pager = ViewFindUtils.Find<ViewPager>(decorView, Resource.Id.viewPager);
-			pager.Adapter = new ViewPagerAdapter();
+			pager.Adapter = adapter;
 
 			Indicator(Resource.Id.indicator_circle);
 			Indicator(Resource.Id.indicator_square);
@@ -53,25 +50,25 @@ namespace Com.Flyco.IndicatorSamples.UI
 
 		private void Indicator(int indicatorId)
 		{
-			Pageindicator.Indicator.FlycoPageIndicator indicator = ViewFindUtils.Find<Com.Flyco.Pageindicator.Indicator.FlycoPageIndicator>(decorView, indicatorId);
-			indicator.SetViewPager(pager, resList.Count);
+			PageIndicator.Indicator.FlycoPageIndicator indicator = ViewFindUtils.Find<Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator>(decorView, indicatorId);
+			indicator.SetViewPager(pager, adapter.Count);
 		}
 
 		private void IndicatorAnim()
 		{
-			Pageindicator.Indicator.FlycoPageIndicator indicator = ViewFindUtils.Find<Pageindicator.Indicator.FlycoPageIndicator>(decorView, Resource.Id.indicator_circle_anim);
+			PageIndicator.Indicator.FlycoPageIndicator indicator = ViewFindUtils.Find<PageIndicator.Indicator.FlycoPageIndicator>(decorView, Resource.Id.indicator_circle_anim);
 			indicator
 				.SetIsSnap(true)
 				.SetSelectAnimClass(typeof(ZoomInEnter))
-                .SetViewPager(pager, resList.Count);
+                .SetViewPager(pager, adapter.Count);
 
 	    }
 
 		private void IndicatorRes()
 		{
-			Pageindicator.Indicator.FlycoPageIndicator indicator_res = ViewFindUtils.Find<Pageindicator.Indicator.FlycoPageIndicator>(decorView, Resource.Id.indicator_res);
+			PageIndicator.Indicator.FlycoPageIndicator indicator_res = ViewFindUtils.Find<PageIndicator.Indicator.FlycoPageIndicator>(decorView, Resource.Id.indicator_res);
 			indicator_res
-				.SetViewPager(pager, resList.Count);
+				.SetViewPager(pager, adapter.Count);
 		}
 
 		class ViewPagerAdapter : PagerAdapter
@@ -88,15 +85,23 @@ namespace Com.Flyco.IndicatorSamples.UI
 					case 1:
 						resId = Resource.Id.page_two;
 						break;
+					case 2:
+						resId = Resource.Id.page_three;
+						break;						
 				}
 				return collection.FindViewById(resId);
+			}
+
+			public override void DestroyItem(ViewGroup container, int position, Object obj)
+			{
+				
 			}
 
 			public override int Count
 			{
 				get
 				{
-					return 2;
+					return 3;
 				}
 			}
 

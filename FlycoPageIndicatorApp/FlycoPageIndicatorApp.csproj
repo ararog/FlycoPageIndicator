@@ -87,6 +87,7 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\item2.jpg" />
     <AndroidResource Include="Resources\mipmap-xhdpi\item3.jpg" />
     <AndroidResource Include="Resources\mipmap-xhdpi\item4.jpg" />
+    <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

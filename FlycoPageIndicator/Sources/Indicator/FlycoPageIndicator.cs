@@ -18,7 +18,7 @@ using FlycoPageIndicator;
 using Java.Lang;
 using NineOldAndroids.View;
 
-namespace Com.Flyco.Pageindicator.Indicator
+namespace Com.Flyco.PageIndicator.Indicator
 {
 
 	public class FlycoPageIndicator : LinearLayout, IPageIndicator

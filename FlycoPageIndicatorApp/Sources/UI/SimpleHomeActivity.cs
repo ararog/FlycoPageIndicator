@@ -10,7 +10,7 @@ using Com.Flyco.IndicatorSamples.Adapter;
 
 namespace Com.Flyco.IndicatorSamples.UI
 {
-	[Activity(Icon = "@mipmap/icon", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
+	[Activity(Theme = "@style/AppTheme", Icon = "@mipmap/icon", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
 	public class SimpleHomeActivity : AppCompatActivity
 	{
 		private string[] items = {"RoundCornerIndicator", "FlycoPageIndicator"};

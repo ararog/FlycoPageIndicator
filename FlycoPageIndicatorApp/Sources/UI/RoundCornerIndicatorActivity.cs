@@ -6,13 +6,13 @@ using FlycoPageIndicatorApp;
 using System.Collections.Generic;
 using Android.Content.PM;
 using Android.App;
-using Com.Flyco.Pageindicator.Indicator;
+using Com.Flyco.PageIndicator.Indicator;
 using Android.Support.V4.View;
 using Java.Lang;
 
 namespace Com.Flyco.IndicatorSamples.UI
 {
-	[Activity(Label = "Sample", Theme = "@android:style/Theme.NoTitleBar.Fullscreen", ScreenOrientation = ScreenOrientation.Portrait)]
+	[Activity(Label = "Sample", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
 	public class RoundCornerIndicatorActivity : AppCompatActivity
 	{
 		private int[] resIds = {Resource.Mipmap.item1, Resource.Mipmap.item2,
@@ -20,6 +20,7 @@ namespace Com.Flyco.IndicatorSamples.UI
 		private List<int> resList;
 		private View decorView;
 		private ViewPager pager;
+		private ViewPagerAdapter adapter;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -32,9 +33,11 @@ namespace Com.Flyco.IndicatorSamples.UI
 				resList.Add(resIds[i]);
 			}
 
+			adapter = new ViewPagerAdapter();
+
 			decorView = Window.DecorView;
 			pager = ViewFindUtils.Find<ViewPager>(decorView, Resource.Id.viewPager);
-			pager.Adapter = new ViewPagerAdapter();
+			pager.Adapter = adapter;
 
 			Indicator(Resource.Id.indicator_circle);
 			Indicator(Resource.Id.indicator_square);
@@ -47,7 +50,7 @@ namespace Com.Flyco.IndicatorSamples.UI
 		private void Indicator(int indicatorId)
 		{
 			RoundCornerIndicator indicator = ViewFindUtils.Find<RoundCornerIndicator>(decorView, indicatorId);
-			indicator.SetViewPager(pager, resList.Count);
+			indicator.SetViewPager(pager, adapter.Count);
 		}
 
 		class ViewPagerAdapter : PagerAdapter
