@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:banner="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.flyco.indicatorsamples.banner.SimpleImageBanner
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        banner:bb_delay="2"
+        banner:bb_period="2"
+        banner:bb_scale="0.5625" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#383838"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+        <Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator
+            android:id="@+id/indicator_circle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            banner:fpi_cornerRadius="5dp"
+            banner:fpi_gap="12dp"
+            banner:fpi_height="10dp"
+            banner:fpi_selectColor="#F44336"
+            banner:fpi_unselectColor="#88F44336"
+            banner:fpi_width="10dp" />
+        <Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator
+            android:id="@+id/indicator_square"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            banner:fpi_cornerRadius="0dp"
+            banner:fpi_gap="12dp"
+            banner:fpi_height="10dp"
+            banner:fpi_selectColor="#FFC107"
+            banner:fpi_unselectColor="#88FFC107"
+            banner:fpi_width="10dp" />
+        <Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator
+            android:id="@+id/indicator_round_rectangle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            banner:fpi_cornerRadius="2dp"
+            banner:fpi_gap="12dp"
+            banner:fpi_height="4dp"
+            banner:fpi_selectColor="#03A9F4"
+            banner:fpi_unselectColor="#8803A9F4"
+            banner:fpi_width="20dp" />
+        <Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator
+            android:id="@+id/indicator_circle_stroke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            banner:fpi_cornerRadius="5dp"
+            banner:fpi_gap="12dp"
+            banner:fpi_height="10dp"
+            banner:fpi_selectColor="#009688"
+            banner:fpi_strokeColor="#009688"
+            banner:fpi_strokeWidth="1dp"
+            banner:fpi_unselectColor="#00000000"
+            banner:fpi_width="10dp" />
+        <Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator
+            android:id="@+id/indicator_square_stroke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            banner:fpi_cornerRadius="0dp"
+            banner:fpi_gap="12dp"
+            banner:fpi_height="10dp"
+            banner:fpi_selectColor="#CDDC39"
+            banner:fpi_strokeColor="#CDDC39"
+            banner:fpi_strokeWidth="1dp"
+            banner:fpi_unselectColor="#00000000"
+            banner:fpi_width="10dp" />
+        <Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator
+            android:id="@+id/indicator_round_rectangle_stroke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            banner:fpi_cornerRadius="4dp"
+            banner:fpi_gap="12dp"
+            banner:fpi_height="8dp"
+            banner:fpi_selectColor="#3E4A61"
+            banner:fpi_strokeColor="#3E4A61"
+            banner:fpi_strokeWidth="1dp"
+            banner:fpi_unselectColor="#00000000"
+            banner:fpi_width="20dp" />
+        <Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator
+            android:id="@+id/indicator_circle_snap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            banner:fpi_cornerRadius="5dp"
+            banner:fpi_gap="12dp"
+            banner:fpi_height="10dp"
+            banner:fpi_isSnap="true"
+            banner:fpi_selectColor="#8BC34A"
+            banner:fpi_unselectColor="#558BC34A"
+            banner:fpi_width="10dp" />
+        <Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator
+            android:id="@+id/indicator_circle_anim"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            banner:fpi_gap="16dp" />
+        <Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator
+            android:id="@+id/indicator_res"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            banner:fpi_cornerRadius="2dp"
+            banner:fpi_gap="12dp"
+            banner:fpi_height="20dp"
+            banner:fpi_selectRes="@mipmap/ic_select"
+            banner:fpi_unselectRes="@mipmap/ic_unselect"
+            banner:fpi_width="20dp" />
+    </LinearLayout>
+</LinearLayout>

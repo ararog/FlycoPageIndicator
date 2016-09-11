@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:banner="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.flyco.indicatorsamples.banner.SimpleImageBanner
+        android:id="@+id/banner_circle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        banner:bb_delay="2"
+        banner:bb_period="2"
+        banner:bb_scale="0.5625" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#383838"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingBottom="15dp">
+        <com.flyco.pageindicator.indicator.RoundCornerIndicator
+            android:id="@+id/indicator_circle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            banner:rci_cornerRadius="5dp"
+            banner:rci_gap="12dp"
+            banner:rci_height="10dp"
+            banner:rci_width="10dp" />
+        <com.flyco.pageindicator.indicator.RoundCornerIndicator
+            android:id="@+id/indicator_square"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            banner:rci_cornerRadius="0dp"
+            banner:rci_gap="12dp"
+            banner:rci_height="10dp"
+            banner:rci_width="10dp" />
+        <com.flyco.pageindicator.indicator.RoundCornerIndicator
+            android:id="@+id/indicator_round_rectangle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            banner:rci_cornerRadius="2dp"
+            banner:rci_gap="12dp"
+            banner:rci_height="4dp"
+            banner:rci_width="15dp" />
+        <com.flyco.pageindicator.indicator.RoundCornerIndicator
+            android:id="@+id/indicator_circle_stroke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            banner:rci_cornerRadius="5dp"
+            banner:rci_gap="12dp"
+            banner:rci_height="10dp"
+            banner:rci_selectColor="#ffffff"
+            banner:rci_strokeColor="#ffffff"
+            banner:rci_strokeWidth="1dp"
+            banner:rci_unselectColor="#00000000"
+            banner:rci_width="10dp" />
+        <com.flyco.pageindicator.indicator.RoundCornerIndicator
+            android:id="@+id/indicator_square_stroke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            banner:rci_cornerRadius="0dp"
+            banner:rci_gap="12dp"
+            banner:rci_height="10dp"
+            banner:rci_selectColor="#ffffff"
+            banner:rci_strokeColor="#ffffff"
+            banner:rci_strokeWidth="1dp"
+            banner:rci_unselectColor="#00000000"
+            banner:rci_width="10dp" />
+        <com.flyco.pageindicator.indicator.RoundCornerIndicator
+            android:id="@+id/indicator_round_rectangle_stroke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="15dp"
+            banner:rci_cornerRadius="2dp"
+            banner:rci_gap="12dp"
+            banner:rci_height="4dp"
+            banner:rci_selectColor="#ffffff"
+            banner:rci_strokeColor="#ffffff"
+            banner:rci_strokeWidth="1dp"
+            banner:rci_unselectColor="#00000000"
+            banner:rci_width="15dp" />
+    </LinearLayout>
+</LinearLayout>
