@@ -33,6 +33,30 @@
                 android:textColor="#fff"
                 android:textSize="24dp" />
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/page_three"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:text="PAGE THREE IN"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#fff"
+                android:textSize="24dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/page_four"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:text="PAGE FOUE IN"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="#fff"
+                android:textSize="24dp" />
+        </LinearLayout>
     </android.support.v4.view.ViewPager>
     <LinearLayout
         android:layout_width="match_parent"

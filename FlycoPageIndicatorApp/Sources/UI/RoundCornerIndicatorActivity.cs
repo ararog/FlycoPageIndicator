@@ -67,15 +67,26 @@ namespace Com.Flyco.IndicatorSamples.UI
 					case 1:
 						resId = Resource.Id.page_two;
 						break;
+					case 2:
+						resId = Resource.Id.page_three;
+						break;
+					case 3:
+						resId = Resource.Id.page_four;
+						break;
 				}
 				return collection.FindViewById(resId);
+			}
+
+			public override void DestroyItem(ViewGroup container, int position, Object obj)
+			{
+
 			}
 
 			public override int Count
 			{
 				get
 				{
-					return 2;
+					return 4;
 				}
 			}
 
