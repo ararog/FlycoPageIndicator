@@ -15,9 +15,6 @@ namespace Com.Flyco.IndicatorSamples.UI
 	[Activity(Label = "Sample", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
 	public class RoundCornerIndicatorActivity : AppCompatActivity
 	{
-		private int[] resIds = {Resource.Mipmap.item1, Resource.Mipmap.item2,
-			Resource.Mipmap.item3, Resource.Mipmap.item4};
-		private List<int> resList;
 		private View decorView;
 		private ViewPager pager;
 		private ViewPagerAdapter adapter;
@@ -26,12 +23,6 @@ namespace Com.Flyco.IndicatorSamples.UI
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.activity_rci);
-
-			resList = new List<int>();
-			for (int i = 0; i < resIds.Length; i++)
-			{
-				resList.Add(resIds[i]);
-			}
 
 			adapter = new ViewPagerAdapter();
 
