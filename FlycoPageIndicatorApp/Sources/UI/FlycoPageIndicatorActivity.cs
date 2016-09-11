@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using Android.Support.V4.View;
 using Android.Support.V7.App;
 using Android.Views;
-using Com.Flyco.IndicatorSamples.Banner;
 using Com.Flyco.IndicatorSamples.Utils;
 using Com.Flyco.PageIndicator.Anim.Select;
 using FlycoPageIndicatorApp;
@@ -19,24 +20,24 @@ namespace Com.Flyco.IndicatorSamples.UI
 		private int[] resIds = {Resource.Mipmap.item1, Resource.Mipmap.item2,
 			Resource.Mipmap.item3, Resource.Mipmap.item4};
 		
-		private List<Integer> resList;
+		private List<int> resList;
 		private View decorView;
-		private SimpleImageBanner banner;
+		private ViewPager pager;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 			SetContentView(Resource.Layout.activity_api);
 
-			resList = new List<Integer>();
+			resList = new List<int>();
 			for (int i = 0; i < resIds.Length; i++)
 			{
 				resList.Add(resIds[i]);
 			}
 
 			decorView = Window.DecorView;
-			banner = ViewFindUtils.Find(decorView, Resource.Id.banner);
-			banner.setSource(resList).startScroll();
+			pager = ViewFindUtils.Find<ViewPager>(decorView, Resource.Id.viewPager);
+			pager.Adapter = new ViewPagerAdapter();
 
 			Indicator(Resource.Id.indicator_circle);
 			Indicator(Resource.Id.indicator_square);
@@ -52,25 +53,57 @@ namespace Com.Flyco.IndicatorSamples.UI
 
 		private void Indicator(int indicatorId)
 		{
-			FlycoPageIndicator indicator = ViewFindUtils.Find<FlycoPageIndicator>(decorView, indicatorId);
-			indicator.setViewPager(banner.ViewPager, resList.Count);
+			Pageindicator.Indicator.FlycoPageIndicator indicator = ViewFindUtils.Find<Com.Flyco.Pageindicator.Indicator.FlycoPageIndicator>(decorView, indicatorId);
+			indicator.SetViewPager(pager, resList.Count);
 		}
 
 		private void IndicatorAnim()
 		{
-			FlycoPageIndicator indicator = ViewFindUtils.Find(decorView, Resource.Id.indicator_circle_anim);
+			Pageindicator.Indicator.FlycoPageIndicator indicator = ViewFindUtils.Find<Pageindicator.Indicator.FlycoPageIndicator>(decorView, Resource.Id.indicator_circle_anim);
 			indicator
-				.setIsSnap(true)
-				.setSelectAnimClass(ZoomInEnter.GetType())
-                .setViewPager(banner.ViewPager, resList.Count);
+				.SetIsSnap(true)
+				.SetSelectAnimClass(typeof(ZoomInEnter))
+                .SetViewPager(pager, resList.Count);
 
 	    }
 
 		private void IndicatorRes()
 		{
-			FlycoPageIndicator indicator_res = ViewFindUtils.Find<FlycoPageIndicator>(decorView, Resource.Id.indicator_res);
+			Pageindicator.Indicator.FlycoPageIndicator indicator_res = ViewFindUtils.Find<Pageindicator.Indicator.FlycoPageIndicator>(decorView, Resource.Id.indicator_res);
 			indicator_res
-				.setViewPager(banner.ViewPager, resList.Count);
+				.SetViewPager(pager, resList.Count);
+		}
+
+		class ViewPagerAdapter : PagerAdapter
+		{
+			public override Object InstantiateItem(ViewGroup collection, int position)
+			{
+
+				int resId = 0;
+				switch (position)
+				{
+					case 0:
+						resId = Resource.Id.page_one;
+						break;
+					case 1:
+						resId = Resource.Id.page_two;
+						break;
+				}
+				return collection.FindViewById(resId);
+			}
+
+			public override int Count
+			{
+				get
+				{
+					return 2;
+				}
+			}
+
+			public override bool IsViewFromObject(View arg0, Object arg1)
+			{
+				return arg0 == ((View)arg1);
+			}
 		}
 	}
 }

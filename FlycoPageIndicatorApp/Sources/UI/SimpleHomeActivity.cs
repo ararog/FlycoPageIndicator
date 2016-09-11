@@ -13,21 +13,20 @@ namespace Com.Flyco.IndicatorSamples.UI
 	[Activity(Icon = "@mipmap/icon", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
 	public class SimpleHomeActivity : AppCompatActivity
 	{
-		private Context context = this;
-		private string[] items = {"RoundCornerIndicaor", "FlycoPageIndicaor"};
-		//private Type[] classes = { RoundCornerIndicaorActivity.class, FlycoPageIndicaorActivity.class};
+		private string[] items = {"RoundCornerIndicator", "FlycoPageIndicator"};
+		private Type[] classes = { typeof(RoundCornerIndicatorActivity), typeof(FlycoPageIndicatorActivity) };
 
 		protected override void OnCreate(Bundle savedInstanceState) 
 		{
 			base.OnCreate(savedInstanceState);
-			ListView lv = new ListView(context);
+			ListView lv = new ListView(this);
 			lv.CacheColorHint = Color.Transparent;
 			lv.SetFadingEdgeLength(0);
-			lv.Adapter = new SimpleHomeAdapter(context, items);
+			lv.Adapter = new SimpleHomeAdapter(this, items);
 
 			lv.ItemClick += (sender, e) =>
 			{
-				Intent intent = new Intent(context, classes[e.Position]);
+				Intent intent = new Intent(this, classes[e.Position]);
 				StartActivity(intent);
 			};
 

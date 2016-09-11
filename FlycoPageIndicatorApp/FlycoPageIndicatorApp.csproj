@@ -60,7 +60,6 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sources\Adapter\SimpleHomeAdapter.cs" />
-    <Compile Include="Sources\Banner\SimpleImageBanner.cs" />
     <Compile Include="Sources\UI\FlycoPageIndicatorActivity.cs" />
     <Compile Include="Sources\UI\RoundCornerIndicatorActivity.cs" />
     <Compile Include="Sources\UI\SimpleHomeActivity.cs" />

@@ -2,12 +2,13 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Views;
 using Com.Flyco.IndicatorSamples.Utils;
-using Com.Flyco.IndicatorSamples.Banner;
 using FlycoPageIndicatorApp;
 using System.Collections.Generic;
 using Android.Content.PM;
 using Android.App;
 using Com.Flyco.Pageindicator.Indicator;
+using Android.Support.V4.View;
+using Java.Lang;
 
 namespace Com.Flyco.IndicatorSamples.UI
 {
@@ -18,7 +19,7 @@ namespace Com.Flyco.IndicatorSamples.UI
 			Resource.Mipmap.item3, Resource.Mipmap.item4};
 		private List<int> resList;
 		private View decorView;
-		private SimpleImageBanner banner;
+		private ViewPager pager;
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
@@ -32,8 +33,8 @@ namespace Com.Flyco.IndicatorSamples.UI
 			}
 
 			decorView = Window.DecorView;
-			banner = ViewFindUtils.Find(decorView, Resource.Id.banner_circle);
-			banner.SetSource(resList).startScroll();
+			pager = ViewFindUtils.Find<ViewPager>(decorView, Resource.Id.viewPager);
+			pager.Adapter = new ViewPagerAdapter();
 
 			Indicator(Resource.Id.indicator_circle);
 			Indicator(Resource.Id.indicator_square);
@@ -46,7 +47,39 @@ namespace Com.Flyco.IndicatorSamples.UI
 		private void Indicator(int indicatorId)
 		{
 			RoundCornerIndicator indicator = ViewFindUtils.Find<RoundCornerIndicator>(decorView, indicatorId);
-			indicator.SetViewPager(banner.ViewPager, resList.Count);
+			indicator.SetViewPager(pager, resList.Count);
+		}
+
+		class ViewPagerAdapter : PagerAdapter
+		{
+			public override Object InstantiateItem(ViewGroup collection, int position)
+			{
+
+				int resId = 0;
+				switch (position)
+				{
+					case 0:
+						resId = Resource.Id.page_one;
+						break;
+					case 1:
+						resId = Resource.Id.page_two;
+						break;
+				}
+				return collection.FindViewById(resId);
+			}
+
+			public override int Count
+			{
+				get
+				{
+					return 2;
+				}
+			}
+
+			public override bool IsViewFromObject(View arg0, Object arg1)
+			{
+				return arg0 == ((View)arg1);
+			}
 		}
 	}
 }
