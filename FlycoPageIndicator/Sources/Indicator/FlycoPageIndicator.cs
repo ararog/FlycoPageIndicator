@@ -14,7 +14,6 @@ using Android.Views.Animations;
 using Android.Widget;
 using Com.Flyco.Pageindicator.Anim.Base;
 using Com.Flyco.PageIndicator.Indicator.Base;
-using FlycoPageIndicator;
 using Java.Lang;
 using NineOldAndroids.View;
 

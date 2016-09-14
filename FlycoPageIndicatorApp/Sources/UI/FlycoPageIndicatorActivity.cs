@@ -8,6 +8,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Com.Flyco.IndicatorSamples.Utils;
 using Com.Flyco.PageIndicator.Anim.Select;
+using Com.Flyco.PageIndicator.Indicator;
 using FlycoPageIndicatorApp;
 using Java.Lang;
 
@@ -45,13 +46,13 @@ namespace Com.Flyco.IndicatorSamples.UI
 
 		private void Indicator(int indicatorId)
 		{
-			PageIndicator.Indicator.FlycoPageIndicator indicator = ViewFindUtils.Find<Com.Flyco.PageIndicator.Indicator.FlycoPageIndicator>(decorView, indicatorId);
+			PageIndicator.Indicator.FlycoPageIndicator indicator = ViewFindUtils.Find<FlycoPageIndicator>(decorView, indicatorId);
 			indicator.SetViewPager(pager, adapter.Count);
 		}
 
 		private void IndicatorAnim()
 		{
-			PageIndicator.Indicator.FlycoPageIndicator indicator = ViewFindUtils.Find<PageIndicator.Indicator.FlycoPageIndicator>(decorView, Resource.Id.indicator_circle_anim);
+			PageIndicator.Indicator.FlycoPageIndicator indicator = ViewFindUtils.Find<FlycoPageIndicator>(decorView, Resource.Id.indicator_circle_anim);
 			indicator
 				.SetIsSnap(true)
 				.SetSelectAnimClass(typeof(ZoomInEnter))
@@ -61,7 +62,7 @@ namespace Com.Flyco.IndicatorSamples.UI
 
 		private void IndicatorRes()
 		{
-			PageIndicator.Indicator.FlycoPageIndicator indicator_res = ViewFindUtils.Find<PageIndicator.Indicator.FlycoPageIndicator>(decorView, Resource.Id.indicator_res);
+			PageIndicator.Indicator.FlycoPageIndicator indicator_res = ViewFindUtils.Find<FlycoPageIndicator>(decorView, Resource.Id.indicator_res);
 			indicator_res
 				.SetViewPager(pager, adapter.Count);
 		}

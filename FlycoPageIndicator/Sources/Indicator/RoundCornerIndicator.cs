@@ -8,7 +8,6 @@ using Android.Support.V4.View;
 using Android.Util;
 using Android.Views;
 using Com.Flyco.PageIndicator.Indicator.Base;
-using FlycoPageIndicator;
 using Java.Lang;
 
 namespace Com.Flyco.PageIndicator.Indicator
